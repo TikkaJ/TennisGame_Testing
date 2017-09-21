@@ -63,5 +63,90 @@ public class TennisGameTest {
 		//Act
 		// This statement should cause an exception
 		game.player1Scored();			
-	}		
+	}	
+	@Test
+	public void test_Player_2Wins() throws TennisGameException {
+		
+		TennisGame game = new TennisGame();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		
+	}
+	@Test
+	public void test_Player1_15_player2_0() throws TennisGameException {
+		TennisGame game = new TennisGame();
+		game.player1Scored();
+		assertEquals("player2love - player1wins1point", "love - 15", game.getScore());
+	}
+	@Test
+	public void test_player1_has_advantage() throws TennisGameException {
+		TennisGame game = new TennisGame();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player1Scored();
+		assertEquals("player1 has advantage", game.getScore());
+
+	}
+	@Test
+	public void test_player2_has_advantage() throws TennisGameException {
+		TennisGame game = new TennisGame();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		assertEquals("player2 has advantage", game.getScore());
+
+	}
+	@Test
+	public void test_player2_has_won() throws TennisGameException {
+		TennisGame game = new TennisGame();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		assertEquals("player2 wins", game.getScore());
+
+	}
+	@Test
+	public void test_player1_ties_game_and_wins() throws TennisGameException {
+		TennisGame game = new TennisGame();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		assertEquals("player1 wins", game.getScore());
+
+	}
+	@Test
+	public void game_is_deuce() throws TennisGameException {
+		TennisGame game = new TennisGame();
+		game.player1Scored();
+		game.player1Scored();
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		assertEquals("deuce", game.getScore());
+
+	}
+	
 }
